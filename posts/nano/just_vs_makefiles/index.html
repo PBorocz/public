@@ -1074,7 +1074,7 @@
 <p>After spending <strong>another</strong> 10 minutes trying to figure out more Makefile idiosyncrasies just to try and automate (and document) both oft and seldom issued commands, I recently found and decided to give the <a href="https://github.com/casey/just">Just</a> command-line runner a try.</p>
 <p>The <a href="https://github.com/casey/just">Just</a> package took less than 10 minutes to understand what was necessary to change my complex Makefile to a far-simpler <code>justfile</code>.</p>
 <p><strong>TL;DR;</strong> -&gt; Why has it taken me so long to find this! If you don't need to worry about <em>dependencies</em>, unreservedly recommended.</p>
-<h3 id="sample-justfile">Sample <code>justfile</code></h3>
+<h2 id="sample-justfile">Sample <code>justfile</code></h2>
 <p>Here is the automation file that I used to build a <em>previous</em> implementation of my site (specifically, with <a href="https://gohugo.io" title="Hugo">Hugo</a>):</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -1110,35 +1110,35 @@
 <span class="nv">DEPLOY</span><span class="w">     </span><span class="o">:=</span><span class="w"> </span>justfile_directory<span class="o">()</span><span class="w"> </span>+<span class="w"> </span><span class="s2">&quot;/deploy&quot;</span>
 <span class="nv">COMMIT_TAG</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="sb">`</span>date<span class="w"> </span><span class="s2">&quot;+%Y-%m-%dT%H:%M:%S&quot;</span><span class="sb">`</span>
 
-
 <span class="c"># This list of available targets # (2)</span>
 <span class="nf">default</span><span class="o">:</span><span class="w"> </span><span class="c"># (3)</span>
 <span class="w">    </span>@just<span class="w"> </span>--list
 
 <span class="c"># Build local content *and* deploy to public github repo.</span>
-<span class="nf">deploy</span><span class="o">:</span><span class="w"> </span><span class="n">build</span> <span class="n">push</span>  <span class="c"># (4) </span>
+<span class="nf">deploy</span><span class="o">:</span><span class="w"> </span><span class="n">build</span> <span class="n">push</span>  <span class="c"># (4)</span>
 
-<span class="c"># Build local content to public directory.</span>
+<span class="c"># Build local content to public directory</span>
 <span class="nf">build</span><span class="o">:</span>
 <span class="w">    </span>@echo<span class="w"> </span><span class="s2">&quot;Generating site...&quot;</span><span class="w"> </span><span class="c1"># (5)</span>
 <span class="w">    </span>@cd<span class="w"> </span><span class="o">{{</span>CONTENT<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>hugo<span class="w"> </span>--quiet<span class="w"> </span>--minify<span class="w"> </span>--gc<span class="w"> </span>--cleanDestinationDir<span class="w"> </span>-d<span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w">  </span><span class="c1"># (6)</span>
 <span class="w">    </span>@cp<span class="w"> </span><span class="o">{{</span>CONTENT<span class="o">}}</span>/CNAME<span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span>
 
-<span class="c"># Commit current version of local public directory and push to github.</span>
+<span class="c"># Commit current version of local public directory and push to github</span>
 <span class="nf">push</span><span class="o">:</span>
 <span class="c">    #!/usr/bin/env fish  # (7)</span>
 <span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Committing and pushing to github...&quot;</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>--all<span class="w"> </span>.<span class="w">                 </span>&gt;git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;{{COMMIT_TAG}}&quot;</span><span class="w"> </span>&gt;&gt;git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
-<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">        </span>&gt;&gt;git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;{{COMMIT_TAG}}&quot;</span><span class="w">                            </span>&gt;<span class="w"> </span>git.log
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>--all<span class="w"> </span>.<span class="w">                </span>&gt;&gt;<span class="w"> </span>git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;{{COMMIT_TAG}}&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
+<span class="w">    </span><span class="nb">cd</span><span class="w"> </span><span class="o">{{</span>DEPLOY<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>main<span class="w">        </span>&gt;&gt;<span class="w"> </span>git.log<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span>
 
-<span class="c"># Run a local server (including drafts).</span>
+<span class="c"># Run a local server (including drafts)</span>
 <span class="nf">server</span><span class="o">:</span>
 <span class="w">    </span>@cd<span class="w"> </span><span class="o">{{</span>CONTENT<span class="o">}}</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>hugo<span class="w"> </span>server<span class="w"> </span>--buildDrafts<span class="w"> </span>--disableFastRender<span class="w"> </span><span class="c1"># (8)</span>
 </code></pre></div></td></tr></table></div>
 <ol>
 <li>
-<p>You can have local variables to represent common strings within the <code>justfile</code> (I treat them like shell variables). Similarly, there are a set of <code>just</code> specific methods, here, I'm getting the directory containing the <code>justfile</code> itself.</p>
+<p>You can have local variables to represent common  strings within the <code>justfile</code> (I treat them like shell variables). Similarly, there are a set of <code>just</code> specific methods, here, I'm getting the directory containing the <code>justfile</code> itself.</p>
 </li>
 <li>
 <p>A comment above a target will be the contents of the respective "help" command (see sample execution below).</p>
