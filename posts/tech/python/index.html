@@ -1347,185 +1347,185 @@
 <li><a href="https://github.com/casey/just">just</a> instead of Makefile arcanity.</li>
 </ul>
 <h2 id="python-version-confirmation-with-pyenv">Python Version Confirmation (with pyenv)</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Confirm version of python to use</span>
-pyenv<span class="w"> </span>versions
-
-<span class="c1"># To list those /available/ to install:</span>
-<span class="c1"># pyenv install --list</span>
-
-<span class="c1"># If we want *do* want to update, bring it down and set it as the global version</span>
-<span class="c1"># (this is how we ensure that the version of on &quot;python -m venv .venv&quot; below uses this version)</span>
-<span class="c1"># pyenv install a.b.c</span>
-<span class="c1"># pyenv global  a.b.c</span>
-<span class="c1">#</span>
-<span class="c1"># Often, we&#39;ll have to upgrade pip as well (even though we use Poetry for our projects)</span>
-<span class="c1"># pip install --upgrade pip</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Confirm version of python to use</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pyenv<span class="w"> </span>versions
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># To list those /available/ to install:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># pyenv install --list</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># If we want *do* want to update, bring it down and set it as the global version</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># (this is how we ensure that the version of on &quot;python -m venv .venv&quot; below uses this version)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># pyenv install a.b.c</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># pyenv global  a.b.c</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">#</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Often, we&#39;ll have to upgrade pip as well (even though we use Poetry for our projects)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># pip install --upgrade pip</span>
+</span></code></pre></div>
 <h2 id="setup-poetry">Setup (poetry)</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># change to directory 1 level up from new project area..</span>
-<span class="nb">cd</span><span class="w"> </span>~/Repository/10-19<span class="w"> </span>Development/10<span class="w"> </span>Development
-
-<span class="c1"># create project..</span>
-poetry<span class="w"> </span>new<span class="w"> </span>&lt;projectname&gt;
-
-<span class="c1"># (also `poetry init` for existing projects ;-)</span>
-
-<span class="c1"># (we don&#39;t need poetry managing our venv&#39;s for us thank you very much ;-)</span>
-poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.create<span class="w"> </span><span class="nb">false</span>
-
-<span class="c1"># if we plan on doing any package publishing or if we reinstalled</span>
-<span class="c1"># poetry, setup our testpypi environment. first, where will we *push*</span>
-<span class="c1"># test packages to testpypi:</span>
-<span class="c1"># poetry config repositories.testpypi https://test.pypi.org/legacy/</span>
-
-<span class="c1"># now, where will test installs from testpypi:</span>
-<span class="c1"># poetry config repositories.test https://test.pypi.org/simple/</span>
-
-<span class="nb">cd</span><span class="w"> </span>&lt;projectname&gt;
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># change to directory 1 level up from new project area..</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>~/Repository/10-19<span class="w"> </span>Development/10<span class="w"> </span>Development
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># create project..</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>poetry<span class="w"> </span>new<span class="w"> </span>&lt;projectname&gt;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># (also `poetry init` for existing projects ;-)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># (we don&#39;t need poetry managing our venv&#39;s for us thank you very much ;-)</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.create<span class="w"> </span><span class="nb">false</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># if we plan on doing any package publishing or if we reinstalled</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># poetry, setup our testpypi environment. first, where will we *push*</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># test packages to testpypi:</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># poetry config repositories.testpypi https://test.pypi.org/legacy/</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1"># now, where will test installs from testpypi:</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># poetry config repositories.test https://test.pypi.org/simple/</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">cd</span><span class="w"> </span>&lt;projectname&gt;
+</span></code></pre></div>
 <h2 id="virtual-environment-creation-python-m-venv">Virtual Environment Creation (python -m venv)</h2>
 <p>Venv precepts I am manic about are:</p>
 <ul>
 <li><strong>ALL</strong> virtualenvs are at the <strong>top-level</strong> of the respective project (same level as <code>.github</code>).</li>
 <li><strong>ALL</strong> virtualenvs are named <code>.venv</code>.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># create venv (i.e. create a venv right here in the local directory called &quot;.venv&quot;)</span>
-python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--without-pip<span class="w"> </span>.venv
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># create venv (i.e. create a venv right here in the local directory called &quot;.venv&quot;)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--without-pip<span class="w"> </span>.venv
+</span></code></pre></div>
 <h2 id="direnv-configuration">Direnv Configuration</h2>
 <p>Make venv startups essentially automatic:</p>
 <p>Cut/paste to .envrc at project's top level dir:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">VIRTUAL_ENV</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>/.venv
-PATH_add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VIRTUAL_ENV</span><span class="s2">/bin&quot;</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VIRTUAL_ENV</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>/.venv
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>PATH_add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VIRTUAL_ENV</span><span class="s2">/bin&quot;</span>
+</span></code></pre></div>
 <p>Followed by:</p>
-<pre><code>% direnv allow
-</code></pre>
+<div class="language-text highlight"><pre><span></span><code>% direnv allow
+</code></pre></div>
 <p>Reference: <a href="https://erick.navarro.io/blog/activate-python-virtualenv-automatically-with-direnv">Activate Python VirtualEnv Automatically with Direnv</a></p>
 <h2 id="packages">Packages</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">###########################################################</span>
-<span class="c1"># add packages relevant to all environments (ie. dev *and* production)</span>
-<span class="c1">###########################################################</span>
-<span class="c1"># add those relevant to all environments (ie. dev *and* production), e.g. loguru?</span>
-poetry<span class="w"> </span>add<span class="w"> </span>...
-
-<span class="c1">##########################################################</span>
-<span class="c1"># add dev-environment-only packages</span>
-<span class="c1">##########################################################</span>
-<span class="c1"># pre-commit code quality checks</span>
-poetry<span class="w"> </span>add<span class="w"> </span>pre-commit<span class="w"> </span>--group<span class="w"> </span>dev
-...
-
-<span class="c1"># We don&#39;t need to add ruff/ruff-lsp anymore (unless we want to use pre-commit as well)</span>
-<span class="c1"># as we have emacs 29+ using ruff-lsp/eglot from a common, pipx installation.</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">###########################################################</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># add packages relevant to all environments (ie. dev *and* production)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">###########################################################</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># add those relevant to all environments (ie. dev *and* production), e.g. loguru?</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>poetry<span class="w"> </span>add<span class="w"> </span>...
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">##########################################################</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># add dev-environment-only packages</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">##########################################################</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># pre-commit code quality checks</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>poetry<span class="w"> </span>add<span class="w"> </span>pre-commit<span class="w"> </span>--group<span class="w"> </span>dev
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>...
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># We don&#39;t need to add ruff/ruff-lsp anymore (unless we want to use pre-commit as well)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># as we have emacs 29+ using ruff-lsp/eglot from a common, pipx installation.</span>
+</span></code></pre></div>
 <h2 id="git">Git</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># setup git repo (needed for pre-commit&#39;s git hooks)</span>
-git<span class="w"> </span>init
-
-<span class="c1"># ...pull a sample .gitignore file from my most recent project (eg. 10.18 as of now)</span>
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># setup git repo (needed for pre-commit&#39;s git hooks)</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>init
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># ...pull a sample .gitignore file from my most recent project (eg. 10.18 as of now)</span>
+</span></code></pre></div>
 <p>An alternate idea for .gitignore (from a reddit comment) is to turn your gitignore into a "gitinclude" (the filename is the same, the usage somewhat different), something like the following:</p>
-<div class="highlight"><pre><span></span><code># Ignore all root items - this is not recursive!
-/*
-
-# Use the exclamation mark to unignore a folder (and it&#39;s subitems) or file
-!src
-!docs
-
-# I like keeping my files separate and below the folders
-!README.md
-!pyproject.toml
-
-# Of course you can still (recursively) ignore anything unneeded
-*.egg-info
-__pycache__
-</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Ignore all root items - this is not recursive!
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>/*
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># Use the exclamation mark to unignore a folder (and it&#39;s subitems) or file
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>!src
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>!docs
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a># I like keeping my files separate and below the folders
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>!README.md
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>!pyproject.toml
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a># Of course you can still (recursively) ignore anything unneeded
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>*.egg-info
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>__pycache__
+</span></code></pre></div>
 <h2 id="pyprojecttoml-configuration"><code>pyproject.toml</code> Configuration</h2>
 <h3 id="ruff">Ruff</h3>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.ruff]</span>
-<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="c1"># Matches black</span>
-<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;py311&quot;</span>
-
-<span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">       </span><span class="s">&quot;ALL&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1"># include ALL rules, including *NEW* ones</span>
-<span class="p">]</span>
-
-<span class="n">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">       </span><span class="c1"># modules (order here is from Ruff documentation)</span>
-<span class="w">       </span><span class="s">&quot;ANN&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-annotations (ie. type annotations!)</span>
-<span class="w">       </span><span class="s">&quot;S&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1"># flake8-bandit</span>
-<span class="w">       </span><span class="s">&quot;BLE&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-blind-except</span>
-<span class="w">       </span><span class="s">&quot;FBT&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-boolean-trap</span>
-<span class="w">       </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1"># flake8-builtins (NO! We use &quot;id&quot; as an attribute, sue me...)</span>
-<span class="w">       </span><span class="s">&quot;EM&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-errmsg</span>
-<span class="w">       </span><span class="s">&quot;ISC&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-implicit-str-concat</span>
-<span class="w">       </span><span class="s">&quot;ICN&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-import-conventions</span>
-<span class="w">       </span><span class="s">&quot;T20&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-print (NO! Removes all print statements!!)</span>
-<span class="w">       </span><span class="s">&quot;PT&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-pytest-style</span>
-<span class="w">       </span><span class="s">&quot;RET&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-return</span>
-<span class="w">       </span><span class="s">&quot;SIM&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-simplify</span>
-<span class="w">       </span><span class="s">&quot;TID&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-tidy-imports</span>
-<span class="w">       </span><span class="s">&quot;ARG&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-unused-arguments</span>
-<span class="w">       </span><span class="s">&quot;DTZ&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-datetimez</span>
-<span class="w">       </span><span class="s">&quot;ERA&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># eradicate</span>
-<span class="w">       </span><span class="s">&quot;PD&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pandas-vet</span>
-<span class="w">       </span><span class="s">&quot;PGH&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># pygrep-hooks</span>
-<span class="w">       </span><span class="s">&quot;PIE&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-pie</span>
-
-<span class="w">       </span><span class="c1"># specific rules</span>
-<span class="w">       </span><span class="s">&quot;D100&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public module&#39;   message, sue me.</span>
-<span class="w">       </span><span class="s">&quot;D102&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public method&#39;   &quot;</span>
-<span class="w">       </span><span class="s">&quot;D101&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public class&#39;    &quot;</span>
-<span class="w">       </span><span class="s">&quot;D103&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public function&#39; &quot;</span>
-<span class="w">       </span><span class="s">&quot;D104&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public package&#39;  &quot;</span>
-<span class="w">       </span><span class="s">&quot;D105&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in magic method&#39;    &quot;</span>
-<span class="w">       </span><span class="s">&quot;D107&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in __init__ method&#39; &quot;</span>
-<span class="w">       </span><span class="s">&quot;D211&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of conflict with D203</span>
-<span class="w">       </span><span class="s">&quot;D213&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of conflict with D212 (leaving D212)</span>
-<span class="w">       </span><span class="s">&quot;E402&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of message about imports not being at the top (need for flask blueprints)</span>
-<span class="w">       </span><span class="s">&quot;F401&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Allows for imports without use (e.g. __init__.py)</span>
-<span class="w">       </span><span class="c1"># &quot;I001&quot;    ,  # Driving me crazy!!! (Imports out of order and/or unsorted!)</span>
-<span class="w">       </span><span class="c1"># &quot;PLW0603&quot; ,  # Allows for the few places we use Globals (2 in DB and 1 in Channels and 1 in query)</span>
-<span class="p">]</span>
-
-<span class="k">[tool.ruff.per-file-ignores]</span>
-<span class="s">&quot;config.py&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">       </span><span class="s">&quot;N802&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># We want all Config properties to be uppercase (even if from a method)</span>
-<span class="w">       </span><span class="s">&quot;N805&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># We have classmethods defined that use &#39;cls&#39; as arg, not &#39;self&#39;!</span>
-<span class="w">       </span><span class="p">]</span>
-
-<span class="k">[tool.ruff.mccabe]</span>
-<span class="n">max-complexity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="c1"># Might be a bit too aggressive but start here and then only increase as absolutely necessary.</span>
-</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[tool.ruff]</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="c1"># Matches black</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;py311&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">select</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">       </span><span class="s">&quot;ALL&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1"># include ALL rules, including *NEW* ones</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">]</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">ignore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">       </span><span class="c1"># modules (order here is from Ruff documentation)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">       </span><span class="s">&quot;ANN&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-annotations (ie. type annotations!)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">       </span><span class="s">&quot;S&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1"># flake8-bandit</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">       </span><span class="s">&quot;BLE&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-blind-except</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">       </span><span class="s">&quot;FBT&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-boolean-trap</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">       </span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w">    </span><span class="c1"># flake8-builtins (NO! We use &quot;id&quot; as an attribute, sue me...)</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">       </span><span class="s">&quot;EM&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-errmsg</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">       </span><span class="s">&quot;ISC&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-implicit-str-concat</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">       </span><span class="s">&quot;ICN&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-import-conventions</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">       </span><span class="s">&quot;T20&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-print (NO! Removes all print statements!!)</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">       </span><span class="s">&quot;PT&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># flake8-pytest-style</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">       </span><span class="s">&quot;RET&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-return</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">       </span><span class="s">&quot;SIM&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-simplify</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">       </span><span class="s">&quot;TID&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-tidy-imports</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">       </span><span class="s">&quot;ARG&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-unused-arguments</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">       </span><span class="s">&quot;DTZ&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-datetimez</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">       </span><span class="s">&quot;ERA&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># eradicate</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">       </span><span class="s">&quot;PD&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1"># pandas-vet</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">       </span><span class="s">&quot;PGH&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># pygrep-hooks</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">       </span><span class="s">&quot;PIE&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># flake8-pie</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">       </span><span class="c1"># specific rules</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">       </span><span class="s">&quot;D100&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public module&#39;   message, sue me.</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">       </span><span class="s">&quot;D102&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public method&#39;   &quot;</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">       </span><span class="s">&quot;D101&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public class&#39;    &quot;</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">       </span><span class="s">&quot;D103&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public function&#39; &quot;</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">       </span><span class="s">&quot;D104&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in public package&#39;  &quot;</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">       </span><span class="s">&quot;D105&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in magic method&#39;    &quot;</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">       </span><span class="s">&quot;D107&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># No abide &#39;Missing docstring in __init__ method&#39; &quot;</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">       </span><span class="s">&quot;D211&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of conflict with D203</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">       </span><span class="s">&quot;D213&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of conflict with D212 (leaving D212)</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">       </span><span class="s">&quot;E402&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Get rid of message about imports not being at the top (need for flask blueprints)</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">       </span><span class="s">&quot;F401&quot;</span><span class="w">    </span><span class="p">,</span><span class="w"> </span><span class="c1"># Allows for imports without use (e.g. __init__.py)</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">       </span><span class="c1"># &quot;I001&quot;    ,  # Driving me crazy!!! (Imports out of order and/or unsorted!)</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">       </span><span class="c1"># &quot;PLW0603&quot; ,  # Allows for the few places we use Globals (2 in DB and 1 in Channels and 1 in query)</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="p">]</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="k">[tool.ruff.per-file-ignores]</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="s">&quot;config.py&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">       </span><span class="s">&quot;N802&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># We want all Config properties to be uppercase (even if from a method)</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">       </span><span class="s">&quot;N805&quot;</span><span class="p">,</span><span class="w">  </span><span class="c1"># We have classmethods defined that use &#39;cls&#39; as arg, not &#39;self&#39;!</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">       </span><span class="p">]</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="k">[tool.ruff.mccabe]</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="n">max-complexity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="c1"># Might be a bit too aggressive but start here and then only increase as absolutely necessary.</span>
+</span></code></pre></div>
 <h3 id="black-optional">Black (optional)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.black]</span>
-<span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span>
-<span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;py311&#39;</span><span class="p">,]</span>
-<span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;\.pyi?$&#39;</span>
-<span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-<span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
-<span class="s">(</span>
-<span class="s">      \.eggs         # exclude a few common directories in the</span>
-<span class="s">    | \.git          # root of the project</span>
-<span class="s">    | \.mypy_cache</span>
-<span class="s">    | \.pytest_cache</span>
-<span class="s">    | \.tox</span>
-<span class="s">    | \.venv</span>
-<span class="s">    | _vm</span>
-<span class="s">    | python-venv</span>
-<span class="s">    | dist</span>
-<span class="s">    | build</span>
-<span class="s">    | _build</span>
-<span class="s">)</span>
-<span class="s">&#39;&#39;&#39;</span>
-</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">[tool.black]</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;py311&#39;</span><span class="p">,]</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">include</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;\.pyi?$&#39;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">(</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">      \.eggs         # exclude a few common directories in the</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s">    | \.git          # root of the project</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">    | \.mypy_cache</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s">    | \.pytest_cache</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s">    | \.tox</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s">    | \.venv</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s">    | _vm</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="s">    | python-venv</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="s">    | dist</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="s">    | build</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="s">    | _build</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="s">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="s">&#39;&#39;&#39;</span>
+</span></code></pre></div>
 <h3 id="isort-optional">iSort (optional)</h3>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.isort]</span>
-<span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span>
-<span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;.venv&quot;</span><span class="p">]</span>
-</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">[tool.isort]</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;black&quot;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">skip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;.venv&quot;</span><span class="p">]</span>
+</span></code></pre></div>
 <h3 id="precommit-optional">PreCommit (optional)</h3>
 <p>From a reddit thread:</p>
 <ul>
@@ -1533,25 +1533,25 @@ __pycache__
 <li><em>If all of those pass, then the pre-commit hooks allow for a commit and pull-request.</em></li>
 </ul>
 <p>Good article on setting up pre-commit -&gt; <a href="https://builtwithdjango.com/blog/improve-your-code-with-pre-commit">Improve your Django Code with pre-commit</a>.</p>
-<div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
-git<span class="w"> </span>add<span class="w"> </span>.pre-commit-config.yaml
-pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files<span class="w">  </span><span class="c1"># optional (to test pre-commit)</span>
-
-<span class="c1">############################################################</span>
-<span class="c1"># Note: the previous 3 lines could be put into justfile as</span>
-<span class="c1"># well, see raindroppy&#39;s justfile for an example.</span>
-<span class="c1">############################################################</span>
-<span class="c1"># To update the pre-commit configuration file to the most</span>
-<span class="c1"># recent tag/revision available for each tool:</span>
-pre-commit<span class="w"> </span>autoupdate<span class="w"> </span><span class="o">[</span>--repo<span class="w"> </span>https://github.com/psf/black<span class="o">]</span><span class="w"> </span><span class="o">[</span>--repo<span class="w"> </span>another<span class="w"> </span><span class="k">done</span><span class="o">]</span>...
-<span class="c1"># (do not forget to pre-commit install and then git add afterwards!)</span>
-
-<span class="c1">############################################################</span>
-<span class="c1"># Copy over code formatting configuration and setup pre-commit</span>
-<span class="c1"># code cleansing (if necessary)</span>
-<span class="c1">############################################################</span>
-cp<span class="w"> </span>~/repository/10-19<span class="w"> </span>development/10<span class="w"> </span>development/.pre-commit-config.yaml<span class="w"> </span>.
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pre-commit<span class="w"> </span>install
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>add<span class="w"> </span>.pre-commit-config.yaml
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files<span class="w">  </span><span class="c1"># optional (to test pre-commit)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="c1">############################################################</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="c1"># Note: the previous 3 lines could be put into justfile as</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># well, see raindroppy&#39;s justfile for an example.</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1">############################################################</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="c1"># To update the pre-commit configuration file to the most</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="c1"># recent tag/revision available for each tool:</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>pre-commit<span class="w"> </span>autoupdate<span class="w"> </span><span class="o">[</span>--repo<span class="w"> </span>https://github.com/psf/black<span class="o">]</span><span class="w"> </span><span class="o">[</span>--repo<span class="w"> </span>another<span class="w"> </span><span class="k">done</span><span class="o">]</span>...
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="c1"># (do not forget to pre-commit install and then git add afterwards!)</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="c1">############################################################</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="c1"># Copy over code formatting configuration and setup pre-commit</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="c1"># code cleansing (if necessary)</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="c1">############################################################</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>cp<span class="w"> </span>~/repository/10-19<span class="w"> </span>development/10<span class="w"> </span>development/.pre-commit-config.yaml<span class="w"> </span>.
+</span></code></pre></div>
 <h2 id="background-links-and-how-to">Background, Links and How-To</h2>
 <h3 id="python-version-management-aka-pyenv">Python Version Management aka <a href="Https://Github.Com/Pyenv/Pyenv">pyenv</a></h3>
 <ul>
@@ -1596,11 +1596,11 @@ cp<span class="w"> </span>~/repository/10-19<span class="w"> </span>development/
 </li>
 <li>
 <p>Add the following stanza to the <code>pyproject.toml</code> file:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[tool.poetry.source]</span>
-<span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span>
-<span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://test.pypi.org/simple/&quot;</span>
-<span class="n">secondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
-</code></pre></div>
+<div class="language-toml highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">[tool.poetry.source]</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://test.pypi.org/simple/&quot;</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">secondary</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
+</span></code></pre></div>
 <p>[note that the name &amp; url match that within the <code>~poetry config --list~</code> environment!]</p>
 </li>
 <li>
@@ -1617,17 +1617,17 @@ cp<span class="w"> </span>~/repository/10-19<span class="w"> </span>development/
 </ul>
 <h3 id="package-distribution-tovia-pypi">Package Distribution to/via <strong>PyPi</strong></h3>
 <p>Specifically, how to publish our build to <strong>TestPyPi</strong> (args: –dry-run for example)</p>
-<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>-x<span class="w"> </span>PYPI_TEST_USERNAME<span class="w"> </span>&lt;token&gt;
-<span class="nb">set</span><span class="w"> </span>-x<span class="w"> </span>PYPI_TEST_PASSWORD<span class="w"> </span>&lt;api_token_from_testpypi&gt;
-
-poetry<span class="w"> </span>config<span class="w"> </span>repositories.testpypi<span class="w"> </span>https://test.pypi.org/legacy/
-poetry<span class="w"> </span>publish<span class="w"> </span>--repository<span class="w"> </span>testpypi<span class="w"> </span>--username<span class="w"> </span><span class="nv">$PYPI_TEST_USERNAME</span><span class="w"> </span>--password<span class="w"> </span><span class="nv">$PYPI_TEST_PASSWORD</span><span class="w"> </span><span class="o">{{</span>args<span class="o">}}</span>
-
-<span class="c1"># NOTE: To pip install _from_ TestPyPi and get the right packages, we need to add regular pypi as a supplemental</span>
-<span class="c1">#       as the overwhelming majority of other required packages will NOT be available on TestPyPi.</span>
-<span class="c1"># Ref : https://stackoverflow.com/questions/57405014/how-to-fix-no-matching-distribution-found-for-package-name-when-installing-o</span>
-pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.org/simple<span class="w"> </span>&lt;ourPackage&gt;
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">set</span><span class="w"> </span>-x<span class="w"> </span>PYPI_TEST_USERNAME<span class="w"> </span>&lt;token&gt;
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">set</span><span class="w"> </span>-x<span class="w"> </span>PYPI_TEST_PASSWORD<span class="w"> </span>&lt;api_token_from_testpypi&gt;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>poetry<span class="w"> </span>config<span class="w"> </span>repositories.testpypi<span class="w"> </span>https://test.pypi.org/legacy/
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>poetry<span class="w"> </span>publish<span class="w"> </span>--repository<span class="w"> </span>testpypi<span class="w"> </span>--username<span class="w"> </span><span class="nv">$PYPI_TEST_USERNAME</span><span class="w"> </span>--password<span class="w"> </span><span class="nv">$PYPI_TEST_PASSWORD</span><span class="w"> </span><span class="o">{{</span>args<span class="o">}}</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># NOTE: To pip install _from_ TestPyPi and get the right packages, we need to add regular pypi as a supplemental</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1">#       as the overwhelming majority of other required packages will NOT be available on TestPyPi.</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># Ref : https://stackoverflow.com/questions/57405014/how-to-fix-no-matching-distribution-found-for-package-name-when-installing-o</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>--extra-index-url<span class="w"> </span>https://pypi.org/simple<span class="w"> </span>&lt;ourPackage&gt;
+</span></code></pre></div>
 <h3 id="other-peoples-approaches">Other People's Approaches</h3>
 <ol>
 <li>
@@ -1653,9 +1653,9 @@ pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </s
 </li>
 <li>
 <p>If installing pycurl, also execute the following (assuming fish shell)</p>
-<div class="highlight"><pre><span></span><code><span class="nb">set</span><span class="w"> </span>-gx<span class="w"> </span>ldflags<span class="w">  </span>-l/usr/local/opt/openssl/lib
-<span class="nb">set</span><span class="w"> </span>-gx<span class="w"> </span>cppflags<span class="w"> </span>-i/usr/local/opt/openssl/include
-</code></pre></div>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">set</span><span class="w"> </span>-gx<span class="w"> </span>ldflags<span class="w">  </span>-l/usr/local/opt/openssl/lib
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nb">set</span><span class="w"> </span>-gx<span class="w"> </span>cppflags<span class="w"> </span>-i/usr/local/opt/openssl/include
+</span></code></pre></div>
 </li>
 </ol>
 
@@ -1739,7 +1739,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </s
     Made in California with
     <a href="https://www.mkdocs.org/" target="_blank" rel="noopener"> MkDocs</a>,
     <a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener"> Emacs</a>,
-    <a href="https://www.python.org/" target="_blank" rel="noopener"> Python</a> using the
+    <a href="https://www.python.org/" target="_blank" rel="noopener"> Python</a>, Thai Milk Tea using the
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"> Material for MkDocs</a> theme.
     <br/>
     &copy; 2023 Péter Böröcz
