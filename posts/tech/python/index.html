@@ -677,29 +677,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool-set" class="md-nav__link">
-    Tool-Set
+  <a href="#meta-tool" class="md-nav__link">
+    Meta Tool
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-version-confirmation-with-pyenv" class="md-nav__link">
-    Python Version Confirmation (with pyenv)
+  <a href="#tools" class="md-nav__link">
+    Tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-poetry" class="md-nav__link">
-    Setup (poetry)
+  <a href="#python-version-confirmation" class="md-nav__link">
+    Python Version Confirmation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-environment-creation-python-m-venv" class="md-nav__link">
-    Virtual Environment Creation (python -m venv)
+  <a href="#project-setup" class="md-nav__link">
+    Project Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environment-creation" class="md-nav__link">
+    Virtual Environment Creation
   </a>
   
 </li>
@@ -895,29 +902,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tool-set" class="md-nav__link">
-    Tool-Set
+  <a href="#meta-tool" class="md-nav__link">
+    Meta Tool
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#python-version-confirmation-with-pyenv" class="md-nav__link">
-    Python Version Confirmation (with pyenv)
+  <a href="#tools" class="md-nav__link">
+    Tools
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-poetry" class="md-nav__link">
-    Setup (poetry)
+  <a href="#python-version-confirmation" class="md-nav__link">
+    Python Version Confirmation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#virtual-environment-creation-python-m-venv" class="md-nav__link">
-    Virtual Environment Creation (python -m venv)
+  <a href="#project-setup" class="md-nav__link">
+    Project Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-environment-creation" class="md-nav__link">
+    Virtual Environment Creation
   </a>
   
 </li>
@@ -1064,17 +1078,49 @@
 <li>I use the single, best tool for the every component (even it that requires more tools!). There's been a recent focus on moving single-use tools to "uber" tools. For example, how many tools now allow you to manage virtualenvs as well?</li>
 <li>This usually implies using only the <em>core</em> capability of each tool (and thus, stay orthogonal and independent from other tools). For example, while Poetry <strong>can</strong> do virtualenvs, I limit it's use for package management and project builds.</li>
 </ul>
-<h2 id="tool-set">Tool-Set</h2>
-<p>My current toolkit is composed of the following tools:</p>
+<h2 id="meta-tool">Meta Tool</h2>
+<p>My toolkit relies on a set of individually installed tools, however, we don't want these tools installed in projects themselves and thus, rely upon the wonderful <a href="https://pypa.github.io/pipx/">pipx</a> environment to manage them (hence, why I consider <a href="https://pypa.github.io/pipx/">pipx</a> a "<em>meta-tool</em>")</p>
+<h2 id="tools">Tools</h2>
+<p>My current toolkit is composed of the following packages:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Https://Github.Com/Pyenv/Pyenv">pyenv</a></td>
+<td>Manage various versions of python installed on my system (ie. irrespective of project, just a set of all the python versions currently used across all my projects).</td>
+</tr>
+<tr>
+<td><a href="Https://Python-Poetry.Org/">poetry</a></td>
+<td>Manage project &amp; package management, i.e. through <code>pyproject.toml</code>.</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/3/library/venv.html">venv</a></td>
+<td>Create and manage virtualenvs.</td>
+</tr>
+<tr>
+<td><a href="https://direnv.net/">direnv</a></td>
+<td>Manage <code>PYTHON_PATH</code> and virtual-env activation/deactivation (with a cool twist for this to happen automagically, see below under <code>Direnv Configuration</code>).</td>
+</tr>
+<tr>
+<td><a href="https://github.com/casey/just">just</a></td>
+<td>Capture and execute commonly-used commands instead of Makefile arcanity.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/charliermarsh/ruff">ruff</a></td>
+<td>Manage almost all source code quality checks (either directly in justfile or pre-commit).</td>
+</tr>
+</tbody>
+</table>
+<p>References:</p>
 <ul>
-<li><a href="Https://Github.Com/Pyenv/Pyenv">pyenv</a> to manage various versions of python installed on my system.</li>
-<li><a href="Https://Python-Poetry.Org/">poetry</a> to manage project &amp; package management (through pyproject.toml). (see <a href="https://til.simonwillison.net/python/pyproject">Python packages with pyproject.toml and nothing else | Simon Willison’s TILs</a>)</li>
-<li><a href="https://docs.python.org/3/library/venv.html">venv</a> module to create and manage virtualenvs.</li>
-<li><a href="https://direnv.net/">direnv</a> to manage <code>PYTHON_PATH</code> and virtual-env activation/deactivation (with a cool twist for this to happen automagically, see below under <code>Direnv Configuration</code>).</li>
-<li><a href="https://github.com/charliermarsh/ruff">ruff</a> to manage almost all source code quality checks (either directly in justfile or pre-commit).</li>
-<li><a href="https://github.com/casey/just">just</a> instead of Makefile arcanity.</li>
+<li><a href="https://til.simonwillison.net/python/pyproject">Python packages with pyproject.toml and nothing else | Simon Willison’s TILs</a></li>
 </ul>
-<h2 id="python-version-confirmation-with-pyenv">Python Version Confirmation (with pyenv)</h2>
+<h2 id="python-version-confirmation">Python Version Confirmation</h2>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Confirm version of python to use</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pyenv<span class="w"> </span>versions
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -1089,7 +1135,8 @@
 </span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1"># Often, we&#39;ll have to upgrade pip as well (even though we use Poetry for our projects)</span>
 </span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># pip install --upgrade pip</span>
 </span></code></pre></div>
-<h2 id="setup-poetry">Setup (poetry)</h2>
+<h2 id="project-setup">Project Setup</h2>
+<p>This is listed above venv creation as for a virgin project, creating the project layout with <code>poetry</code> itself first is slightly more straightforward.</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># change to directory 1 level up from new project area..</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>~/Repository/10-19<span class="w"> </span>Development/10<span class="w"> </span>Development
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -1111,48 +1158,53 @@
 </span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
 </span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">cd</span><span class="w"> </span>&lt;projectname&gt;
 </span></code></pre></div>
-<h2 id="virtual-environment-creation-python-m-venv">Virtual Environment Creation (python -m venv)</h2>
-<p>Venv precepts I am manic about are:</p>
+<h2 id="virtual-environment-creation">Virtual Environment Creation</h2>
+<p>Virtual environment precepts I am <u>manic</u> about are:</p>
 <ul>
 <li><strong>ALL</strong> virtualenvs are at the <strong>top-level</strong> of the respective project (same level as <code>.github</code>).</li>
 <li><strong>ALL</strong> virtualenvs are named <code>.venv</code>.</li>
 </ul>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># create venv (i.e. create a venv right here in the local directory called &quot;.venv&quot;)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--without-pip<span class="w"> </span>.venv
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Create venv</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="c1"># (i.e. create a venv right here in the local directory called &quot;.venv&quot;)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>--without-pip<span class="w"> </span>.venv
 </span></code></pre></div>
 <h2 id="direnv-configuration">Direnv Configuration</h2>
-<p>Make venv startups essentially automatic:</p>
-<p>Cut/paste to .envrc at project's top level dir:</p>
+<p>Make venv startups essentially automatic (while also setting <code>PYTHON_PATH</code> appropriately!)</p>
+<p>➡ Cut/paste to <code>.envrc</code> at project's top level directory:</p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
 </span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">VIRTUAL_ENV</span><span class="o">=</span><span class="nv">$PYTHONPATH</span>/.venv
 </span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>PATH_add<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VIRTUAL_ENV</span><span class="s2">/bin&quot;</span>
 </span></code></pre></div>
-<p>Followed by:</p>
+<p>➡ Followed by:</p>
 <div class="language-text highlight"><pre><span></span><code>% direnv allow
 </code></pre></div>
-<p>Reference: <a href="https://erick.navarro.io/blog/activate-python-virtualenv-automatically-with-direnv">Activate Python VirtualEnv Automatically with Direnv</a></p>
+<p>References:</p>
+<ul>
+<li>Obviously <a href="https://direnv.net/">direnv</a> itself.</li>
+<li><a href="https://erick.navarro.io/blog/activate-python-virtualenv-automatically-with-direnv">Activate Python VirtualEnv Automatically with Direnv</a></li>
+</ul>
 <h2 id="packages">Packages</h2>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">###########################################################</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># add packages relevant to all environments (ie. dev *and* production)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="c1"># Add packages relevant to all environments (ie. dev *and* production)</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="c1">###########################################################</span>
 </span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># add those relevant to all environments (ie. dev *and* production), e.g. loguru?</span>
 </span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>poetry<span class="w"> </span>add<span class="w"> </span>...
 </span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
 </span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">##########################################################</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># add dev-environment-only packages</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="c1"># Add development environment only packages</span>
 </span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1">##########################################################</span>
 </span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="c1"># pre-commit code quality checks</span>
 </span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>poetry<span class="w"> </span>add<span class="w"> </span>pre-commit<span class="w"> </span>--group<span class="w"> </span>dev
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>...
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>...etc...
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
 </span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># We don&#39;t need to add ruff/ruff-lsp anymore (unless we want to use pre-commit as well)</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># as we have emacs 29+ using ruff-lsp/eglot from a common, pipx installation.</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="c1"># as we have emacs 29+ using ruff-lsp/eglot from a common, pipx-based installation.</span>
 </span></code></pre></div>
 <h2 id="git">Git</h2>
-<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># setup git repo (needed for pre-commit&#39;s git hooks)</span>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Setup git repo (needed for pre-commit&#39;s git hooks)</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>git<span class="w"> </span>init
 </span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># ...pull a sample .gitignore file from my most recent project (eg. 10.18 as of now)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># ...Pull a sample .gitignore file from my most recent project (eg. 10.18 as of now)</span>
 </span></code></pre></div>
 <p>An alternate idea for .gitignore (from a reddit comment) is to turn your gitignore into a "gitinclude" (the filename is the same, the usage somewhat different), something like the following:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># Ignore all root items - this is not recursive!
@@ -1172,6 +1224,7 @@
 </span></code></pre></div>
 <h2 id="pyprojecttoml-configuration"><code>pyproject.toml</code> Configuration</h2>
 <h3 id="ruff">Ruff</h3>
+<p>Obviously, in pyproject.toml, place the following stanzas:</p>
 <div class="language-toml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">[tool.ruff]</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">line-length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">120</span><span class="w"> </span><span class="c1"># Matches black</span>
 </span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">target-version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;py311&quot;</span>
@@ -1235,8 +1288,8 @@
 </span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">fast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span>
 </span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">exclude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;&#39;&#39;</span>
 </span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s">(</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">      \.eggs         # exclude a few common directories in the</span>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s">    | \.git          # root of the project</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s">      \.eggs         # exclude a few common directories in the project root.</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s">    | \.git</span>
 </span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s">    | \.mypy_cache</span>
 </span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s">    | \.pytest_cache</span>
 </span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s">    | \.tox</span>
@@ -1260,7 +1313,7 @@
 <li><em>I've also found that ssort is useful in larger codebases. My workflow is: black -&gt; isort -&gt; ssort -&gt; ruff -&gt; mypy -&gt; pytest</em></li>
 <li><em>If all of those pass, then the pre-commit hooks allow for a commit and pull-request.</em></li>
 </ul>
-<p>Good article on setting up pre-commit -&gt; <a href="https://builtwithdjango.com/blog/improve-your-code-with-pre-commit">Improve your Django Code with pre-commit</a>.</p>
+<p>Good article on setting up pre-commit -&gt; <a href="https://builtwithdjango.com/blog/improve-your-code-with-pre-commit">Improve your Django Code with pre-commit</a></p>
 <div class="language-shell highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pre-commit<span class="w"> </span>install
 </span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>git<span class="w"> </span>add<span class="w"> </span>.pre-commit-config.yaml
 </span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>pre-commit<span class="w"> </span>run<span class="w"> </span>--all-files<span class="w">  </span><span class="c1"># optional (to test pre-commit)</span>
@@ -1418,10 +1471,10 @@
       <div class="md-copyright">
   
   
-    Made in California with a lot of Thai milk tea,
+    Made in California with Thai milk tea,
     <a href="https://www.mkdocs.org/" target="_blank" rel="noopener"> MkDocs</a>,
-    <a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener"> Emacs</a>,
-    <a href="https://www.python.org/" target="_blank" rel="noopener"> Python</a>, using the
+    <a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener"> Emacs</a> and
+    <a href="https://www.python.org/" target="_blank" rel="noopener"> Python</a> using the
     <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener"> Material for MkDocs</a> theme.
     <br/>
     &copy;  2023 Péter Böröcz
